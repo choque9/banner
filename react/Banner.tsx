@@ -23,10 +23,12 @@ const Banner: StorefrontFunctionComponent<VisibilityLayoutProps> = ({
     const infoCardBannerTwo = document.querySelector(".vtex-store-components-3-x-infoCardContainer--info-card-banner-two");
 
     if (firstChildContainerBannerOne && infoCardBannerOne) {
+      (infoCardBannerOne as HTMLElement).style.display = "flex"
       clonedElement.firstChild?.replaceWith(infoCardBannerOne)
     }
 
     if (firstChildContainerBannerTwo && infoCardBannerTwo) {
+      (infoCardBannerTwo as HTMLElement).style.display = "flex"
       clonedElement2.firstChild?.replaceWith(infoCardBannerTwo)
     }
 
@@ -34,6 +36,7 @@ const Banner: StorefrontFunctionComponent<VisibilityLayoutProps> = ({
       if (firstBannerIsVisible) {
         if (!document.contains(clonedElement) && infoCardBannerOne) {
           if (searchResult && searchResult.length > positionfirstBanner && searchResult[positionfirstBanner].parentNode) {
+
             searchResult[positionfirstBanner].parentNode?.insertBefore(clonedElement, searchResult[positionfirstBanner]);
           }
         }
