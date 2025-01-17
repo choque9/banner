@@ -1,5 +1,21 @@
 {
   "banner": {
-    "component": "Banner"
+    "allowed": "*",
+    "composition": "children",
+    "component": "Banner",
+    "content": {
+      "properties": {
+        "firstBannerIsVisible": {
+          "title": "editor.banner.title",
+          "type": "boolean",
+          "default": true
+        },
+        "secondBannerIsVisible": {
+          "title": "editor.banner.title",
+          "type": "boolean",
+          "default": true
+        }
+      }
+    }
   }
 }

@@ -1,8 +1,10 @@
-import React, { useEffect } from 'react'
+import React, { Fragment, useEffect } from 'react'
 
-interface CountdownProps { }
-
-const Banner: StorefrontFunctionComponent<CountdownProps> = ({ }) => {
+const Banner: StorefrontFunctionComponent<VisibilityLayoutProps> = ({
+  firstBannerIsVisible = true,
+  secondBannerIsVisible = true,
+  children
+}) => {
 
   useEffect(() => {
     const searchResult = document.querySelectorAll(".vtex-search-result-3-x-galleryItem");
@@ -17,29 +19,34 @@ const Banner: StorefrontFunctionComponent<CountdownProps> = ({ }) => {
       firstChild.replaceWith(banner)
     }
 
-    if (!document.contains(clonedElement)) {
-      if (searchResult && searchResult.length && searchResult[2].parentNode) {
-        searchResult[2].parentNode.insertBefore(clonedElement, searchResult[2]);
+    if (firstBannerIsVisible) {
+      if (!document.contains(clonedElement)) {
+        if (searchResult && searchResult.length && searchResult[2].parentNode) {
+          searchResult[2].parentNode.insertBefore(clonedElement, searchResult[2]);
+        }
       }
     }
 
-    const clonedElement2 = clonedElement.cloneNode(true);
-    if (!document.contains(clonedElement2)) {
-      if (searchResult && searchResult.length && searchResult[3].parentNode) {
-        searchResult[3].parentNode.insertBefore(clonedElement2, searchResult[3]);
+    if (secondBannerIsVisible) {
+      const clonedElement2 = clonedElement.cloneNode(true);
+      if (!document.contains(clonedElement2)) {
+        if (searchResult && searchResult.length && searchResult[3].parentNode) {
+          searchResult[3].parentNode.insertBefore(clonedElement2, searchResult[3]);
+        }
       }
     }
 
   }, []);
 
-  return <div>TEST BANNER</div>
+  return <Fragment>{children}</Fragment>
+}
+interface VisibilityLayoutProps {
+  firstBannerIsVisible: boolean
+  secondBannerIsVisible: boolean
 }
 
 Banner.schema = {
-  title: 'editor.banner.title',
-  description: 'editor.banner.description',
-  type: 'object',
-  properties: {},
+  title: 'editor.banner.title'
 }
 
 export default Banner
