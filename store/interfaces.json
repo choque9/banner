@@ -6,14 +6,24 @@
     "content": {
       "properties": {
         "firstBannerIsVisible": {
-          "title": "editor.banner.title",
+          "title": "editor.banner.is-active",
+          "type": "boolean",
+          "default": true
+        }        ,
+        "positionfirstBanner": {
+          "title":"editor.banner.position1",
+          "type": "number",
+          "default": 1
+        },
+        "secondBannerIsVisible": {
+          "title": "editor.banner.is-active",
           "type": "boolean",
           "default": true
         },
-        "secondBannerIsVisible": {
-          "title": "editor.banner.title",
-          "type": "boolean",
-          "default": true
+        "positionSecondBanner": {
+          "title":"editor.banner.position2",
+          "type": "number",
+          "default": 2
         }
       }
     }

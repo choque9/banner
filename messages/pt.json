@@ -1,4 +1,7 @@
 {
-  "editor.banner.title": "Component Banner",
-  "editor.banner.description": "Banner"
+  "editor.banner.title": "Banner",
+  "editor.banner.is-active": "Active",
+  "editor.banner.description": "Banner component",
+  "editor.banner.position1": "Position banner 1",
+  "editor.banner.position2": "Position banner 2"
 }
